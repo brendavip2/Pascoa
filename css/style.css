@@ -562,9 +562,9 @@ body{
 .item3 img, .item5 img, .item7 img {
     width: 100%;
     margin:0;
-    margin-bottom: 20px;
+    margin-bottom: -10px;
     padding:0;
-    max-height: 40%;
+    max-height: 50%;
     object-fit: contain;
     top:0;
     height: 50%;
