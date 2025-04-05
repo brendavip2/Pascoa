@@ -2066,91 +2066,18 @@ $('#prev30').click(function(event) {
     }
 });
 </script>
-		$(document).ready(function() {
-    // Handler para o botão "próximo"
-    $('#next2a').click(function(event) {
-        event.preventDefault();
-        
-        // Obter as medidas atuais
-        var scrollLeft = $('#listar-registro2a').scrollLeft();
-        var containerWidth = $('#listar-registro2a').outerWidth();
-        var scrollWidth = $('#listar-registro2a')[0].scrollWidth;
-        var itemWidth = $('.item').outerWidth(true);
-        
-        // Calcular quantos itens são visíveis ao mesmo tempo
-        var visibleItems = Math.floor(containerWidth / itemWidth);
-        
-        // Calcular o quanto rolar - exatamente a largura de um item completo
-        // Isso garante que o próximo item seja totalmente visível
-        var scrollAmount = itemWidth * visibleItems;
-        
-        // Verificar se chegamos perto do final
-        if (scrollLeft + containerWidth + itemWidth >= scrollWidth) {
-            // Se estamos perto do final, vamos para o final exato
-            $('#listar-registro2a').animate({
-                scrollLeft: scrollWidth - containerWidth
-            }, "slow");
-        } else {
-            // Caso contrário, avançamos exatamente a largura de visibleItems
-            $('#listar-registro2a').animate({
-                scrollLeft: scrollLeft + scrollAmount
-            }, "slow");
-        }
-    });
+		<div class="carousel-wrapper">
+    <button class="arrow-prev">❮</button>
     
-    // Handler para o botão "anterior"
-    $('#prev2a').click(function(event) {
-        event.preventDefault();
-        
-        // Obter as medidas atuais
-        var scrollLeft = $('#listar-registro2a').scrollLeft();
-        var containerWidth = $('#listar-registro2a').outerWidth();
-        var itemWidth = $('.item').outerWidth(true);
-        
-        // Calcular quantos itens são visíveis ao mesmo tempo
-        var visibleItems = Math.floor(containerWidth / itemWidth);
-        
-        // Calcular o quanto rolar - exatamente a largura de um item completo
-        var scrollAmount = itemWidth * visibleItems;
-        
-        if (scrollLeft <= itemWidth) {
-            // Se estamos perto do início, vamos para o início exato
-            $('#listar-registro2a').animate({
-                scrollLeft: 0
-            }, "slow");
-        } else {
-            // Caso contrário, retrocedemos exatamente a largura de visibleItems
-            $('#listar-registro2a').animate({
-                scrollLeft: scrollLeft - scrollAmount
-            }, "slow");
-        }
-    });
+    <div class="products-container">
+        <div class="product-item">Produto 1</div>
+        <div class="product-item">Produto 2</div>
+        <div class="product-item">Produto 3</div>
+        <!-- mais produtos... -->
+    </div>
     
-    // Opcionalmente, adicionar rolagem por toque para dispositivos móveis
-    var touchStartX = 0;
-    var touchEndX = 0;
-    
-    $('#listar-registro2a').on('touchstart', function(e) {
-        touchStartX = e.originalEvent.touches[0].pageX;
-    });
-    
-    $('#listar-registro2a').on('touchend', function(e) {
-        touchEndX = e.originalEvent.changedTouches[0].pageX;
-        handleSwipe();
-    });
-    
-    function handleSwipe() {
-        var minSwipeDistance = 50;
-        if (touchStartX - touchEndX > minSwipeDistance) {
-            // Swipe para a esquerda - avançar
-            $('#next2a').trigger('click');
-        } else if (touchEndX - touchStartX > minSwipeDistance) {
-            // Swipe para a direita - voltar
-            $('#prev2a').trigger('click');
-        }
-    }
-});
-
+    <button class="arrow-next">❯</button>
+</div>
     <div class="bg-gray-200 py-4 some">
     <div class="text-center mb-4">
         <button class="text-gray-600 text-xs">Mais informações <i class="fas fa-chevron-down"></i></button>
